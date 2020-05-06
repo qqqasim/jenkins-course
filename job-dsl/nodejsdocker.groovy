@@ -1,6 +1,6 @@
 job('NodeJS Docker example') {
     scm {
-        git('git@github.com:qqqasim/docker-demo.git') {  node -> // is hudson.plugins.git.GitSCM
+        git('git://github.com:qqqasim/docker-demo.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('DSL User')
             node / gitConfigEmail('qasim.ali135@yahoo.com')
         }
@@ -14,7 +14,7 @@ job('NodeJS Docker example') {
     }
     steps {
         dockerBuildAndPublish {
-            repositoryName('8030223/docker-nodejs-demo')
+            repositoryName('8030223/docker-nodejs-demo-v1')
             tag('${GIT_REVISION,length=9}')
             registryCredentials('7345')
             forcePull(false)
